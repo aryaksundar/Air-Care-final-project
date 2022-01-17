@@ -1,0 +1,110 @@
+<%- include('main/head'); -%>
+ <!-- Favicons -->
+ <link href="../img/favicon.png" rel="icon">
+ <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+ <!-- Bootstrap core CSS -->
+ <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <!--external css-->
+ <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="../css/zabuto_calendar.css">
+ <link rel="stylesheet" type="text/css" href="../lib/gritter/css/jquery.gritter.css" />
+ <!-- Custom styles for this template -->
+ <link href="../css/style.css" rel="stylesheet">
+ <link href="../css/style-responsive.css" rel="stylesheet">
+ <script src="../lib/chart-master/Chart.js"></script>
+<%- include('main/sidebar'); -%>
+    
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+      <h3><i class="fa fa-angle-right"></i>View Complaints</h3>
+
+        <div class="form">
+          <% if (data && data.compind){%>
+          <form class="cmxform form-horizontal style-form" id="signupForm" method="POST" action="/admin/viewcompind">
+            
+            <div class="form-group ">
+              <label for="lastname" class="control-label col-lg-2">Complaint Id</label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="compid" name="compid"  type="text" value="<%= data.compind[0].compid %> "/>
+              </div>
+            </div>
+          <div class="form-group ">
+            <label for="compcate" class="control-label col-lg-2">Complaint Category</label>
+            <div class="col-lg-10">
+              <input class="form-control " id="compcate"  name="compcate"   type="text"  value="<%= data.compind[0].compcat %> "/>
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="compdes" class="control-label col-lg-2 ">Complaint Description</label>
+            <div class="col-lg-10">
+              <textarea name="cdes" class="form-control" type="text" ><%= data.compind[0].compdes %></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group ">
+              <label for="id" class="control-label col-lg-2">User Id</label>
+              <div class="col-lg-10">
+             <input class=" form-control" id="userid" name="userid"  type="text" value="<%= data.compind[0].uid %> "/>
+              </div>
+              </div>
+             
+            <div class="form-group ">
+              <label for="firstname" class="control-label col-lg-2">Firstname</label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="firstname" name="firstname"  type="text" value="<%= data.compind[0].first_name %> "/>
+              </div>
+              </div>
+        
+            <div class="form-group ">
+              <label for="lastname" class="control-label col-lg-2">Lastname</label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="lastname" name="lastname"  type="text" value="<%= data.compind[0].last_name %> "/>
+              </div>
+            </div>
+
+            
+            
+    
+    
+            <div class="form-group ">
+              <label for="tech_name" class="control-label col-lg-2">Technician Names</label>
+              <div class="col-lg-10">
+              
+                <select class="form-control" name="techname">
+                  <option value="0"> Select Technician  </option>
+                   <% if (data1 && data1.tech){%>
+                         <% for(var i = 0; i < data1.tech.length; i++){ %>
+                 
+                 <option value="<%= data1.tech[i].id %>"> <%= data1.tech[i].first_name %> <%=data1.tech[i].last_name%> </option>
+                           
+                               
+                             <% } %>
+                        <% } %>
+                  </select>
+              </div>
+           </div>
+             
+           
+        
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <a class="button_1" href="/admin/viewcompind">
+                <button class="btn btn-theme" type="submit">Save</button></a>
+                <button class="btn btn-theme04" type="button">Cancel</button>
+              </div>
+            </div>
+          </form>
+          <%}%>
+        </div>
+      </div>
+      <!-- /form-panel -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  </section>
+</section>
+<%- include('main/foot'); -%>

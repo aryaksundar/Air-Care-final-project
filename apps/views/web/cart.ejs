@@ -1,0 +1,142 @@
+<%-include ('partials/header') %>
+
+	
+
+<script src="/js/jquery-1.9.1.js"></script>   
+     <script type="text/javascript">
+     $(document).ready(function() {
+	
+     $(document).on('keyup', '#qty', function(){
+
+       var qty = $(this).val();
+	  
+       var pid = $(this).attr("data-id");
+      
+ 
+     $.ajax({ 
+           url: '/updatecart',
+           type: 'POST',
+           cache: false, 
+           data: { id: pid,qty:qty }, 
+           success: function(data){
+             // alert(Updated Successfully');
+             
+           }, error: function(jqXHR, textStatus, err){
+              // alert('text status '+textStatus+', err '+err)
+           }
+        })
+     }); 
+
+
+
+});
+
+          
+
+</script>
+
+
+<div class="privacy py-sm-5 py-4">
+		<div class="container py-xl-4 py-lg-2">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>C</span>art
+			</h3>
+			<!-- //tittle heading -->
+			<div class="checkout-right">
+				<h4 class="mb-sm-4 mb-3">Your shopping cart contains:
+					<span> Products</span>
+				</h4>
+
+				
+				<div class="table-responsive">
+					<table class="timetable_sub">
+						<thead>
+							<tr>
+								<th>SL No.</th>
+								<th>Product Id</th>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>Product Name</th>
+                                <th>Price</th>
+					            <th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						 <% 
+							 var totprice=0;
+                               if (data && data.product){%>
+                                <% for(var i = 0; i < data.product.length; i++){%>
+                               <!-- Cart Item -->
+
+                              <% totprice+=data.product[i].brperunit*data.product[i].qty %>
+
+
+
+							<tr class="rem1">
+								<td class="invert"><%= i+1%></td>
+								<td class="invert" name="id"><%= data.product[i].brid%></td>
+								<td class="invert-image">
+									
+										<img src="../product/<%= data.product[i].photo_name %>" width="50" alt=" " class="img-responsive">
+									
+								</td>
+								
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+										
+											<div class="entry value">
+												<input type="text" id="qty" name="qty" data-id="<%= data.product[i].id%>" value="<%= data.product[i].qty %>" style="width:25px;" >
+											</div>
+											
+										</div>
+									</div>
+								</td>
+
+								
+								<td class="invert"><%= data.product[i].brname%></td>
+								<td class="invert">  <%= data.product[i].brperunit %></td>
+								
+								<td class="invert">
+									<div class="rem">
+										<div class="close1">
+								
+											<a href="/delete_cart_item/<%= data.product[i].id%>"><span data-id="<%= data.product[i].id%>" class="del" >del</a>
+										<a href="/delete_cart_item/<%= data.product[i].id%>"><span data-id="<%= data.product[i].id%>" class="del" >
+										<span data-id="<%= data.product[i].id%>" class="del" ></span></a> </div>
+									</div>
+								</td>
+							</tr>
+							
+									      <%}%>
+                            <%}%>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="cart_extra_total_title">Subtotal</div>
+			<div class="cart_extra_total_value ml-auto">RS <%= totprice %></div>
+        </div>
+
+    </div>
+
+	<div class="checkout-right-basket">
+		<a href="/"> Continue Shopping
+			<span class="far fa-hand-point-right"></span>
+		</a>
+		</div>
+
+<div class="checkout-right-basket">
+<a href="/checkout"> Checkout
+    <span class="far fa-hand-point-right"></span>
+</a>
+</div>
+		
+		</div>
+	</div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+
+<%-include ('partials/footer') %>

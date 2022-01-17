@@ -1,0 +1,84 @@
+<%- include('main/head'); -%>
+<%- include('main/sidebar'); -%>
+
+
+   <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Technician Details</h3>
+              <div class="row">
+            
+
+            <div class="row mt">
+                <div class="col-md-12">
+                    <div class="content-panel">
+                        <table class="table table-striped table-advance table-hover">
+                                
+                                <hr>
+                            <thead>
+                            <tr>
+                                <th> ID</th>
+                                <th>First Name</th>
+                                <th>Second Name</th>
+                                <th>Email ID</th>
+                                <th>Approval Status</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% if (data && data.techn){%>
+                                    <% for(var i = 0; i < data.techn.length; i++){ %>
+                                <tr>
+                                    
+                                    <td><%= data.techn[i].id %></td>
+                                    <td><%= data.techn[i].first_name %> </td>
+                                    <td><%= data.techn[i].last_name %></td>
+                                   <td> <%= data.techn[i].email %></td>
+                                   
+                                              
+                                   
+                                   <td>
+                                    <% if ( data.techn[i].mainstatus < 1){%>
+                                        <a class="button_1" href="/admin/techindividual/<%= data.techn[i].id %>">
+                                        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                        <% } else{ %> 
+                                        Approved
+                                     <% } %>
+                                    </td>
+                                </tr>
+                                  
+                                <% } %>
+                                <% } %>
+                           
+                            
+                            
+                            </tbody>
+                        </table>
+                    </div><!-- /content-panel -->
+                </div><!-- /col-md-12 -->
+            
+            </div><!-- /row -->
+
+      </section><! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+
+<%- include('main/foot'); -%>   
+      

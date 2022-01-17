@@ -1,0 +1,56 @@
+<%- include('main/head'); -%>
+<%- include('main/sidebar'); -%>
+<section id="main-content">
+  <section class="wrapper">
+    <h3><i class="fa fa-angle-right"></i> Delivery Management</h3>
+<div class="row mt">
+    <div class="col-lg-12">
+      <h4><i class="fa fa-angle-right"></i>Delivery Management</h4>
+      <div class="form-panel">
+        <div class="form">
+          <form class="cmxform form-horizontal style-form" id="signupForm" method="POST" action="/admin/del_management">
+            <div class="form-group ">
+              <label for="del_Id" class="control-label col-lg-2">Delivery_Id</label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="did" name="did" type="number" />
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="del_date" class="control-label col-lg-2">Delivery_Date</label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="ddate" name="ddate" type="date" />
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="dtime" class="control-label col-lg-2">Delivery_Time</label>
+              <div class="col-lg-10">
+                <input class="form-control " id="dtime" name="dtime" type="time" />
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="dstatus" class="control-label col-lg-2">Delivery_Status</label>
+              <div class="col-lg-10">
+                <input class="form-control " id="dstatus" name="dstatus" type="text" />
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-theme" type="submit">Send</button>
+                <button class="btn btn-theme04" type="button">Update</button>
+                <button class="btn btn-theme04" type="button">Cancel</button>
+              </div>
+            </div>
+        
+          </form>
+        </div>
+      </div>
+      <!-- /form-panel -->
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  </section>
+
+        <%- include('main/foot'); -%>
+    

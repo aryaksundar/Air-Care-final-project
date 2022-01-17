@@ -1,0 +1,48 @@
+
+<%- include('partials/header'); -%>
+
+<!--main content start-->
+<section id="main-content">
+<section class="wrapper">
+<h3><i class="fa fa-angle-right"></i> Categories of Bill</h3>
+<div class="row mt">
+<div class="col-lg-12">
+<h4><i class="fa fa-angle-right"></i> Bill Category</h4>
+<div class="form-panel">
+<div class="form">
+<form class="cmxform form-horizontal style-form" id="bill_category" method="POST" action="/bill_category">
+  <div class="form-group ">
+      <label for="agree" class="control-label col-lg-2 col-sm-3">Delivery Payment</label>
+      <div class="col-lg-10 col-sm-9">
+          <a class="checkbox_1" href="/bill_delivery">
+        <input type="checkbox" style="width: 20px" class="checkbox form-control" id="agree" name="agree" /></a>
+      </div>
+    </div>
+    <div class="form-group ">
+      
+      <label for="newsletter" class="control-label col-lg-2 col-sm-3">Maintenance Payment
+      </label>
+      <div class="col-lg-10 col-sm-9">
+          <a class="checkbox_1" href="/bill_maintenance">
+        <input type="checkbox" style="width: 20px" class="checkbox form-control" id="newsletter" name="newsletter" /></a>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+          <a class="button_1" href="/bill_delivery">
+        <button class="btn btn-theme" type="submit">Next</button></a>
+        <button class="btn btn-theme04" type="button">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<!-- /form-panel -->
+</div>
+<!-- /col-lg-12 -->
+</div>
+<!-- /row -->
+</section>
+</section>
+
+<%- include('partials/footer'); -%>

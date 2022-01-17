@@ -1,0 +1,69 @@
+<%- include('topbot/head'); -%>
+
+  
+   
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+<div class="row mt">
+    <div class="col-lg-10">
+        <br>
+        <br>
+
+      <h4 style="color:white;"><i ></i> Profile </h4><br>
+      <div class="form-panel">
+        <div class="form">
+
+            <% if(data1 && data1.techcomp){%>
+         
+          <form class="cmxform form-horizontal style-form" id="signupForm" action="/technician/main_ser">
+   
+              
+
+             <div class="form-group ">
+              <label for="mtime" style="color:white;" class="control-label col-lg-5">Name</label>
+              <div class="col-lg-6">
+                <input class="form-control " id="cid" name="cid" type="text" value="<%=locals.technician.first_name %> <%=locals.technician.last_name %> " />
+              </div>
+            </div>
+            <div class="form-group ">
+                <label for="mstatus" style="color:white;" class="control-label col-lg-5">Email</label>
+                <div class="col-lg-6">
+                  <input class="form-control " id="mstatus" name="mstatus" type="text" value="<%=locals.technician.email %>" />
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="mstatus" style="color:white;" class="control-label col-lg-5">Mobile Number</label>
+                <div class="col-lg-8">
+                  <input class=" form-control" id="uid" name="uid" type="text"  value="<%= data1.techcomp[0].mobno %>"/>
+                </div>
+              </div>
+               <div class="form-group ">
+              <label for="mid" class="control-label col-lg-5" style="color:white;">Qualification</label>
+              <div class="col-lg-6">
+                <input class=" form-control" id="uid" name="uid" type="text" value="<%= data1.techcomp[0].quali %> " />
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="mid" class="control-label col-lg-5" style="color:white;">Experience</label>
+              <div class="col-lg-6">
+                <input class=" form-control" id="uname" name="uname" type="text"  value="<%= data1.techcomp[0].exp %> "/>
+              </div>
+            </div>
+          </form>
+          <% } %>
+        
+    
+          
+         </div>
+      </div>
+      <!-- /form-panel -->
+    
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  </section>
+</section>
+      <%- include('topbot/foot'); -%>

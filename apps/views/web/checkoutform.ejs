@@ -1,0 +1,244 @@
+ <!-- <%-include ('partials/header') %>
+
+ <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>    
+     <script type="text/javascript">
+
+   
+   $( document ).ready(function() {
+  
+    //  $("#placeorder1").on('click', function(){ 
+$("#placeorder1").click(function () {
+    
+     // var pid = $(this).attr("data-id");
+
+   
+ var fname = $('#fname').val();
+ var email = $('#email').val();
+ var hno = $('#hno').val();
+ var hname = $('#hname').val();
+ var pin = $('#pin').val();
+ var rname = $('#rname').val();
+ var area = $('#area').val();
+ var place = $('#place').val();
+ var state = $('#state').val();
+ var zip = $('#zip').val();
+ var phn = $('#phn').val();
+  var total_bill_amt = $('#total_bill_amt').val();
+// alert(fname);
+     $.ajax({ 
+           url: '/checkoutform',
+           type: 'POST',
+           cache: false, 
+           data: { fullname: fname,email:email,hno : hno,bname : hname,pin : pin,rname : rname,areaname : area,pname : place,state : state,phone : phn,zip:zip,total_bill_amt:total_bill_amt }, 
+           success: function(data){
+              alert('Order Successfully completed');
+              $("#placeorder1").hide();
+             
+           }
+           , error: function(jqXHR, textStatus, err){
+              // alert('text status '+textStatus+', err '+err)
+           }
+        })
+     });  
+
+      });            
+
+</script>
+
+
+		<!-- page -->
+	<!-- <<div class="services-breadcrumb">
+		<div class="agile_inner_breadcrumb">
+			<div class="container">
+				<ul class="w3_short">
+					<li>
+						<a href="index.html">Home</a>
+						<i>|</i>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div> -->
+	<!-- //page -->
+	<!-- checkout page -->
+	<!-- <div class="privacy py-sm-5 py-4">
+		<div class="container py-xl-4 py-lg-2"> -->
+			<!-- tittle heading -->
+		<!-- <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>C</span>heckout
+			</h3> --> --> -->
+			<!-- //tittle heading -->
+		<!-- <div class="checkout-right">
+				<h4 class="mb-sm-4 mb-3">Your shopping cart contains:
+					<span>3 Products</span>
+				</h4>
+				<div class="table-responsive">
+					<table class="timetable_sub">
+						<!-- <thead> -->
+							 <!-- <tr>
+								<th>SL No.</th>
+								<th>Product</th>
+								<th>Quality</th>
+								<th>Product Name</th>
+
+								<th>Price</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody> --> --> -->
+  
+						 <!-- <% 
+							 var totprice=0;
+                               if (data && data.prdt){%>
+                                <% for(var i = 0; i < data.prdt.length; i++){%>
+                               <!-- Cart Item -->
+
+                              <!-- <% totprice+=data.prdt[i].brperunit*data.prdt[i].qty %>
+                            	<tr class="rem1">
+								<td class="invert"><%= i+1%></td>
+								<td class="invert-image">
+									
+										<img src="../product/<%= data.prdt[i].photo_name%>" alt=" " class="img-responsive"> -->
+<!-- 									
+								</td>
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value">
+												<span><%= data.prdt[i].qty %></span>
+											</div>
+											<div class="entry value-plus active">&nbsp;</div>
+										</div>
+									</div>
+								</td>
+								<td class="invert"><%= data.prdt[i].brname%></td>
+								<td class="invert">  <%= data.prdt[i].brperunit*data.prdt[i].qty %></td>
+								<td class="invert">
+									<div class="rem">
+										<div class="close1">
+										<a href="/delete_cart_item/<%= data.prdt[i].cid%>"><span data-id="<%= data.prdt[i].cid%>" class="del" >
+										<span data-id="<%= data.prdt[i].cid%>" class="del" ></span></a> </div>
+									</div>
+								</td>
+							</tr> -->
+							
+									      <!-- <%}%> --> -->
+                            <!-- <%}%>
+						</tbody>
+					</table> -->
+				<!-- </div>
+			</div> -->
+	 <!-- <div class="checkout-left"> --> --> --> -->
+				<!-- <div class="address_form_agile mt-sm-5 mt-4">
+					<h4 class="mb-sm-4 mb-3">Add a new Details</h4>
+					<% if (data1 && data1.cust){%>
+						<% for(var i = 0; i < data1.cust.length; i++){ %>
+					<form action="/checkoutform" method="post" class="creditly-card-form agileinfo_form">
+						<div class="creditly-wrapper wthree, w3_agileits_wrapper">
+							<div class="information-wrapper">
+								<div class="first-row">
+									<div class="controls form-group">
+									    <input class="billing-address-name form-control" type="text" name="fullname" placeholder="Full Name" value="<%=data1.cust[0].fullname%>">
+									</div>
+									<div class="w3_agileits_card_number_grids">
+										<div class="w3_agileits_card_number_grid_left form-group">
+											<div class="controls">
+											   <input class="form-control"  type="email" id="email" name="email" placeholder="Email" value="<%=data1.cust[0].email%>" >
+											</div>
+										</div>
+										<div class="w3_agileits_card_number_grid_right form-group"> -->
+											<!-- <div class="controls">
+										        <input  class="form-control"  type="text" id="hno" name="hno" placeholder="House Number" value="<%=data1.cust[0].hno%>">
+											</div>
+										</div>
+									</div>
+									<div class="controls form-group">
+			                         <input class="form-control"  type="text" id="hname" name="hname" placeholder="House Name" value="<%=data1.cust[0].hname%>">
+									</div>
+									<div class="controls form-group">
+										<input class="form-control"  type="text" id="pin" name="pin" placeholder="Pin Code" value="<%=data1.cust[0].pin%>">
+									   </div>
+									   <div class="controls form-group">
+										<input class="form-control"  type="text" id="rname" name="rname" placeholder="Road Name" value="<%=data1.cust[0].rname%>">
+									   </div>
+									   <div class="controls form-group">
+										<input class="form-control"  type="text" id="aname" name="area" placeholder="Area Name" value="<%=data1.cust[0].areaname%>">
+									   </div> -->
+									<!-- <div class="controls form-group">
+										<input class="form-control"  type="text" id="place" name="place" placeholder="Place" value="<%=data1.cust[0].pname%>">
+									   </div>
+									   <div class="controls form-group">
+										<input class="form-control"  type="text" id="state" name="state" placeholder="State" value="<%=data1.cust[0].state%>">
+									   </div>
+									<div class="controls form-group">
+                                          <input  class="form-control"  type="text" id="phn" name="phn" placeholder="Phone" value="<%=data1.cust[0].phone%>">
+									</div>
+
+
+							 <div class="controls form-group">
+										<select class="option-w3ls">
+											<option>Select Address type</option>
+											<option>Office</option>
+											<option>Home</option>
+											<option>Commercial</option>
+
+										</select>
+									</div>
+									-->
+					 <!-- </div>
+								<button class="submit check_out btn">Delivery to this Address</button>
+							</div>
+						</div>
+					</form>
+					<% }} %>
+					<div class="checkout-right-basket">
+					<a href="#" class="btn btn-info" id="placeorder1">Place order<span class="far fa-hand-point-right"></span></a>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> --> -->
+	<!-- //checkout page -->
+
+	<!-- middle section -->
+<!-- <div class="join-w3l1 py-sm-5 py-4">
+		<div class="container py-xl-4 py-lg-2">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="join-agile text-left p-4">
+						<div class="row">
+							<div class="col-sm-7 offer-name">
+								<h6>Smooth, Rich & Loud Audio</h6>
+								<h4 class="mt-2 mb-3">Branded Headphones</h4>
+								<p>Sale up to 25% off all in store</p>
+							</div>
+							<div class="col-sm-5 offerimg-w3l">
+								<img src="images/off1.png" alt="" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div> --> -->
+				<!-- <div class="col-lg-6 mt-lg-0 mt-5">
+					<div class="join-agile text-left p-4">
+						<div class="row ">
+							<div class="col-sm-7 offer-name">
+								<h6>A Bigger Phone</h6>
+								<h4 class="mt-2 mb-3">Smart Phones 5</h4>
+								<p>Free shipping order over $100</p>
+							</div>
+							<div class="col-sm-5 offerimg-w3l">
+								<img src="images/off2.png" alt="" class="img-fluid"> --> -->
+							<!-- </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- middle section -->
+<!--  
+    <%-include ('partials/footer') %>   --> -->

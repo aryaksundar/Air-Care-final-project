@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Technician Registration </title>
+    <!--
+
+    Template 2108 Dashboard
+
+	http://www.tooplate.com/view/2108-dashboard
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css" type="text/css" />
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css">
+</head>
+
+
+        <!-- row -->
+        <div class="row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" >
+                <div class="bg-white tm-block">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="tm-block-title d-inline-block">Registration</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-12 tm-edit-product-row" >
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <% if (data && data.error){ %>
+                                <div id="register-alert" class="alert alert-danger col-sm-12">
+                                    <%= data.error %>
+                                    <%= data.firstname %>
+                                    <%= data.lastname %>
+                                    <%= data.dob %>
+                                    <%= data.qualification %>
+                                    <%= data.experience %>
+                                    <%= data.email %>
+                                    <%= data.password %>
+                                    <%= data.mob %>
+    
+                                </div>
+                                <%}%>
+                        
+                        
+                            <form method="POST" action="/techregister" class="tm-edit-product-form">
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6  col-lg-5 col-md-4 col-sm-5 mb-2">First Name
+                                    </label>
+                                   
+                                    <input id="name" name="firstname" type="text" class="form-control">
+                            
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6  col-lg-5 col-md-4 col-sm-5 mb-2">Last Name
+                                    </label>
+                                    <input id="name" name="lastname" type="text" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">Date of Birth
+                                    </label>
+                                    <input id="data-large-mode" name="dob" type="date" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">Gender
+                                    </label>
+                                    <input id="data-large-mode" name="gender" type="gender" class="form-control">
+                                </div>
+                               
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">Qualification
+                                    </label>
+                                    <input id="name" name="qualification" type="text" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">Experience
+                                    </label>
+                                    <input id="name" name="experience" type="text" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">Email ID
+                                    </label>
+                                    <input id="name" name="email" type="text" class="form-control"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="name" class="col-xl-6 col-lg-5 col-md-4 col-sm-5 mb-2">password
+                                    </label>
+                                    <input id="name" name="password" type="password" class="form-control" pattern=".{8,}" title="Eight or more characters">
+                                </div>
+                               
+                                <div class="input-group mb-3">
+                                    <label for="number" class="col-xl-6 col-lg-5 col-md-12 col-sm-13 col-form-label">Mobile Number
+                                   </label>
+                                    <input id="mob" name="mob" type="text" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7"
+                                        data-large-mode="true">
+                                </div>
+                               
+                               
+                                <div class="form-group col-lg-12" >
+         
+                                    <input type="submit" class="btn btn-success">
+                                     <h5 class="text-center"><a class="button_1" href="#"></a></h5>
+                                     
+                                     </div>
+                            </form>
+                        </div>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    

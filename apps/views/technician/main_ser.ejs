@@ -1,0 +1,95 @@
+<%- include('topbot/head'); -%>
+
+  
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../css/responsive.css" rel="stylesheet" />
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+<div class="row mt">
+    <div class="col-lg-10">
+      <br>
+      <br>
+      <h4 style="color:white;" ><i></i> Maintenance Management </h4><br>
+      <div class="form-panel">
+        <div class="form">
+
+            <% if(data1 && data1.techcomp){%>
+              <% for(var i = 0; i < data1.techcomp.length; i++){ %>
+         
+          <form class="cmxform form-horizontal style-form" id="signupForm" action="/technician/main_ser">
+   
+              
+
+             <div class="form-group ">
+              <label for="mtime" class="control-label col-lg-5" style="color:white;">Complaint Id</label>
+              <div class="col-lg-6">
+                <input class="form-control " id="cid" name="cid" type="text" value="<%= data1.techcomp[0].compid %> " />
+              </div>
+            </div>
+            <div class="form-group ">
+                <label for="mstatus" class="control-label col-lg-5" style="color:white;">Complaint category</label>
+                <div class="col-lg-6">
+                  <input class="form-control " id="mstatus" name="mstatus" type="text" value="<%= data1.techcomp[0].compcat %> " />
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="mstatus" class="control-label col-lg-5" style="color:white;">Complaint Description</label>
+                <div class="col-lg-8">
+                  <textarea name="cdes" class="form-control" type="text" ><%= data1.techcomp[0].compdes %></textarea>
+                </div>
+              </div>
+               <div class="form-group ">
+              <label for="mid" class="control-label col-lg-5" style="color:white;">Customer Id</label>
+              <div class="col-lg-6">
+                <input class=" form-control" id="uid" name="uid"  type="text" value="<%= data1.techcomp[0].id %> " />
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="mid" style="color:white;"class="control-label col-lg-5">Customer Name</label>
+              <div class="col-lg-6">
+                <input class=" form-control" id="uname" name="uname" type="text"  value="<%=data1.techcomp[0].first_name%> <%=data1.techcomp[0].last_name %>"/>
+              </div>
+            </div>
+            
+
+           <div class="form-group ">
+              <label for="mdate" style="color:white;" class="control-label col-lg-10">Customer Address</label>
+              <div class="col-lg-6">
+                <textarea name="cdes" class="form-control" type="text"><%= data1.techcomp[0].hno %>, <%= data1.techcomp[0].bname %>, <%= data1.techcomp[0].pin%>, <%= data1.techcomp[0].bname %>, <%= data1.techcomp[0].areaname %>, <%= data1.techcomp[0].city%>, <%= data1.techcomp[0].state%></textarea>
+              </div>
+              </div>
+
+        <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <a class="button_1" href="/technician/workupdation/<%= data1.techcomp[i].compid %>">  
+                  <button class="btn btn-theme04" style="color:white;" type="button">Work updation</button></a>                
+                <button class="btn btn-theme04" style="color:white;" type="button">Cancel</button>
+              </div>
+            </div>
+          </form>
+          <% } %>
+          <% } %>
+        
+    
+          
+         </div>
+      </div>
+      <!-- /form-panel -->
+    
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  </section>
+</section>
+      <%- include('topbot/foot'); -%>

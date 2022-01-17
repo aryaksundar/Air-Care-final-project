@@ -1,0 +1,116 @@
+<%- include('topbot/head'); -%>
+
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>    
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+
+//  $("#placeorder1").on('click', function(){ 
+$("#work_job").click(function () {
+
+// var pid = $(this).attr("data-id");
+
+
+var cid = $('#cid').val();
+var wid = $('#wid').val();
+var cd = $('#crec').val();
+var rem = $('#remark').val();
+
+// alert(fname);
+$.ajax({ 
+      url: '/technician/workupdation',
+      type: 'POST',
+      cache: false, 
+      data: { compid : cid,duration : wid,compdes : cd,remark : rem }, 
+      success: function(data){
+         alert('Work entered Successfully ');
+         // $("#placeorder1").hide();
+        
+      }
+      , error: function(jqXHR, textStatus, err){
+         // alert('text status '+textStatus+', err '+err)
+      }
+   })
+});  
+
+ });            
+
+</script>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../css/responsive.css" rel="stylesheet" />
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+<div class="row mt">
+    <div class="col-lg-10">
+      <br>
+      <br>
+      <h4 style="color:white;" ><i></i> Work Updation </h4><br>
+      <div class="form-panel">
+        <div class="form">
+
+        
+            <% if (data && data.comp){%>
+          <form class="cmxform form-horizontal style-form" id="signupForm" method="post" action="/technician/workupdation">
+   
+              
+           
+             <div class="form-group ">
+              <label for="mtime" class="control-label col-lg-5" style="color:white;">Complaint Id</label>
+              <div class="col-lg-6">
+                <input class="form-control " id="cid" name="cid" type="text"  value="<%=data.comp[0].compid %>"/>
+              </div>
+            </div>
+          
+               <div class="form-group ">
+              <label for="mid" class="control-label col-lg-5" style="color:white;">Work Duration</label>
+              <div class="col-lg-6">
+                <input class=" form-control" id="wid" name="wduration" type="time"/>
+              </div>
+            </div>
+            <div class="form-group ">
+                <label for="mstatus" class="control-label col-lg-5" style="color:white;">Complaint Rectified</label>
+                <div class="col-lg-8">
+                  <textarea name="cdes" id="crec"  class="form-control"  type="text" ></textarea>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="mstatus" class="control-label col-lg-5" style="color:white;">Remarks</label>
+                <div class="col-lg-6">
+                  <input class="form-control " id="remark" name="remark" type="text" />
+                </div>
+              </div>
+
+        <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+      
+                <button class="btn btn-theme04" style="color:white;" id="work_job" type="button">Finish</button>
+                <button class="btn btn-theme04" style="color:white;" type="button">Cancel</button>
+              </div>
+            </div>
+          </form>
+
+        <% } %>
+    
+          
+         </div>
+      </div>
+      <!-- /form-panel -->
+    
+    </div>
+    <!-- /col-lg-12 -->
+  </div>
+  <!-- /row -->
+  </section>
+</section>
+      <%- include('topbot/foot'); -%>

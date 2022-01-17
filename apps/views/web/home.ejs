@@ -1,0 +1,236 @@
+<%- include('partials/header'); -%>
+
+
+
+	<!-- top Products -->
+	<form action="/" method="post">
+	<div class="ads-grid py-sm-5 py-4">
+		<div class="container py-xl-4 py-lg-2">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>O</span>ur
+				<span>N</span>ew
+				<span>P</span>roducts</h3>
+			<!-- //tittle heading -->
+			<div class="row">
+				<!-- product left -->
+				<div class="agileinfo-ads-display col-lg-12">
+					<div class="wrapper">
+						<!-- first section -->
+						<div class="product-sec1 px-sm-3 px-8 py-sm-10 py-3 mb-9">
+							<h4 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">New Brand Air Conditioners</h3>
+							<div class="row"><br>
+								<% if (data && data.photos){%>
+                                    <% for(var i = 0; i < data.photos.length; i++){ %>
+
+								<div class="col-md-3 product-men mt-5">
+									<div class="men-pro-item simpleCart_shelfItem">
+										<div class="men-thumb-item text-center">
+											<img src= "product/<%= data.photos[i].photo_name %>" width="200" height="200" alt="">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+										</div>
+										<div class="item-info-product text-center border-top mt-4">
+											<h4 class="pt-1">
+												<a href="single.html"><%= data.photos[i].brname %></a>
+											</h4>
+											
+											<div class="info-product-price my-2">
+												<span class="item_price">$<%= data.photos[i].brperunit %></span>
+												
+											</div>
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+												
+													<fieldset>
+														<input type="hidden" name="cmd" value="_cart" />
+														<input type="hidden" name="add" value="1" />
+														<input type="hidden" name="business" value=" " />
+														<input type="hidden" name="item_name" value="Sony 80 cm (32 inches)" />
+														<input type="hidden" name="amount" value="320.00" />
+														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="currency_code" value="USD" />
+														<input type="hidden" name="return" value=" " />
+														<input type="hidden" name="cancel_return" value=" " />
+														<a class="button_1" href="/prdtdet/<%= data.product[i].brid %>">
+														<button class="btn btn-theme04" type="button">Add To Cart</button></a>
+													</fieldset>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }} %>
+								
+							</div>
+							<div class="row">
+								<% if (catblock && catblock.productcat1){%>
+                                    <% for(var i = 0; i < catblock.productcat1.length; i++){ %>
+
+								<div class="col-md-3 product-men mt-10">
+									<div class="men-pro-item simpleCart_shelfItem">
+										<div class="men-thumb-item text-center">
+											<img src= "product/<%= catblock.productcat1[i].photo_name %>" width="200" height="200" alt="">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+										</div>
+										<div class="item-info-product text-center border-top mt-4">
+											<h4 class="pt-1">
+												<a href="single.html"><%= catblock.productcat1[i].brname %></a>
+											</h4>
+											<h6 class="pt-1">
+												<a href="single.html"><%= catblock.productcat1[i].brandname %></a>
+											</h6>
+											<div class="info-product-price my-2">
+												<span class="item_price">$<%= catblock.productcat1[i].brperunit %></span>
+												
+											</div>
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+											
+													<fieldset>
+														<input type="hidden" name="cmd" value="_cart" />
+														<input type="hidden" name="add" value="1" />
+														<input type="hidden" name="business" value=" " />
+														<input type="hidden" name="item_name" value="Sony 80 cm (32 inches)" />
+														<input type="hidden" name="amount" value="320.00" />
+														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="currency_code" value="USD" />
+														<input type="hidden" name="return" value=" " />
+														<input type="hidden" name="cancel_return" value=" " />
+														<a class="button_1" href="/prdtdet/<%= catblock.productcat1[i].brid %>">
+														<button class="btn btn-theme04" type="button">Add To Cart</button></a>
+														
+														
+													</fieldset>
+											
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }} %>
+								
+							</div>
+							<div class="row">
+								<% if (catblock2 && catblock2.productcat2){%>
+                                    <% for(var i = 0; i < catblock2.productcat2.length; i++){ %>
+
+								<div class="col-md-3 product-men mt-5">
+									<div class="men-pro-item simpleCart_shelfItem">
+										<div class="men-thumb-item text-center">
+											<img src= "product/<%= catblock2.productcat2[i].photo_name %>" width="200" height="200" alt="">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+										</div>
+										<div class="item-info-product text-center border-top mt-4">
+											<h4 class="pt-1">
+												<a href="single.html"><%= catblock2.productcat2[i].brname %></a>
+											</h4>
+											<h6 class="pt-1">
+												<a href="single.html"><%= catblock2.productcat2[i].brandname %></a>
+											</h6>
+											<div class="info-product-price my-2">
+												<span class="item_price">$<%= catblock2.productcat2[i].brperunit %></span>
+												
+											</div>
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+											
+													<fieldset>
+														<input type="hidden" name="cmd" value="_cart" />
+														<input type="hidden" name="add" value="1" />
+														<input type="hidden" name="business" value=" " />
+														<input type="hidden" name="item_name" value="Sony 80 cm (32 inches)" />
+														<input type="hidden" name="amount" value="320.00" />
+														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="currency_code" value="USD" />
+														<input type="hidden" name="return" value=" " />
+														<input type="hidden" name="cancel_return" value=" " />
+														<a class="button_1" href="/prdtdet/<%= catblock2.productcat2[i].brid %>">
+														<button class="btn btn-theme04" type="button">Add To Cart</button></a>
+													</fieldset>
+								
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }} %>
+								
+							</div>
+							<div class="row">
+								<% if (catblock3 && catblock3.productcat3){%>
+                                    <% for(var i = 0; i < catblock3.productcat3.length; i++){ %>
+
+								<div class="col-md-3 product-men mt-5">
+									<div class="men-pro-item simpleCart_shelfItem">
+										<div class="men-thumb-item text-center">
+											<img src= "product/<%= catblock3.productcat3[i].photo_name %>" width="150" height="150" alt="">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+										</div>
+										<div class="item-info-product text-center border-top mt-4">
+											<h4 class="pt-1">
+												<a href="single.html"><%= catblock3.productcat3[i].brname %></a>
+											</h4>
+											<h6 class="pt-1">
+												<a href="single.html"><%= catblock3.productcat3[i].brandname %></a>
+											</h6>
+											<div class="info-product-price my-2">
+												<span class="item_price">$<%= catblock3.productcat3[i].brperunit %></span>
+												
+											</div>
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+											
+													<fieldset>
+														<input type="hidden" name="cmd" value="_cart" />
+														<input type="hidden" name="add" value="1" />
+														<input type="hidden" name="business" value=" " />
+														<input type="hidden" name="item_name" value="Sony 80 cm (32 inches)" />
+														<input type="hidden" name="amount" value="320.00" />
+														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="currency_code" value="USD" />
+														<input type="hidden" name="return" value=" " />
+														<input type="hidden" name="cancel_return" value=" " />
+														<a class="button_1" href="/prdtdet/<%= catblock3.productcat3[i].brid %>">
+														<button class="btn btn-theme04" type="button">Add To Cart</button></a>
+													</fieldset>
+								
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }} %>
+								
+							</div>
+
+						
+						</div>
+	
+						
+			
+					</div>
+				</div>
+				<!-- //product left -->
+
+				
+				
+			
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	<!-- //top products -->
+
+	
+    <%- include('partials/footer'); -%>
+	

@@ -1,0 +1,76 @@
+<%- include('main/head'); -%>
+<%- include('main/sidebar'); -%>
+
+
+   <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Complaints </h3>
+              <div class="row">
+            
+
+            <div class="row mt">
+                <div class="col-md-12">
+                    <div class="content-panel">
+                        <table class="table table-striped table-advance table-hover">
+                                
+                                <hr>
+                            <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Complaint Categories </th>
+                                <th>Assigned Status</th>
+                                <th>Work Status</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% if (data && data.comp){%>
+                                    <% for(var i = 0; i < data.comp.length; i++){ %>
+                                <tr>
+                                    
+                                    <td><%= data.comp[i].uid %></td>
+                                    <td><%= data.comp[i].compcat %> </td>
+                                    
+                                   
+                                   <td>
+                                    <% if ( data.comp[i].techid > 0){%>
+                                    Work Assigned
+                                    <% } else{ %> 
+                                    <a class="button_1" href="/admin/viewcompind/<%= data.comp[i].compid %>">
+                                        <button class="btn btn-success btn-xs">View</button></a>
+                                       <% } %>
+                                   </td>
+                                    <td>
+                                    <% if ( data.comp[i].status == 1){%>
+                                        Work Completed
+                                        <% } %>
+                                        </td>
+                                        <td>
+                                <a class="button_1" href="/admin/bill_generate/<%= data.comp[i].compid %>">
+                                        <button class="btn btn-success btn-xs">Generate Bill</button></a>
+                                        </td>
+                                </tr>
+                                  
+                                <% } %>
+                                <% } %>
+                           
+                            
+                            
+                            </tbody>
+                        </table>
+                    </div><!-- /content-panel -->
+                </div><!-- /col-md-12 -->
+            
+            </div><!-- /row -->
+
+      </section><! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+<div>
+<%- include('main/foot'); -%>   
+</div>
+      

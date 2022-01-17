@@ -1,0 +1,58 @@
+<%- include('partials/header'); -%>
+<div class="privacy py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+            <span>M</span>y Complaints
+        </h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+            <h4 class="mb-sm-4 mb-3">My 
+                <span>Complaints</span>
+            </h4>
+
+            
+            <div class="table-responsive">
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>Complaint Id</th>
+                            <th>Complaint Category</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data && data.comp){%>
+                            <% for(var i = 0; i < data.comp.length; i++){ %>
+                        <tr>
+                            <td><%= data.comp[i].compid %></td>
+                            <td><%= data.comp[i].compcat %> </td>
+                            
+                             <td>
+               
+                                <% if ( data.comp[i].status==1 ){%>
+                                    <a class="button_1" href="/viewbill/<%= data.comp[i].compid %>">
+                                    <button class="btn btn-success btn-xs">View Bill</button></a>
+                                    <% } else{ %> 
+                                    Progress
+                                    <% } %>
+                                    </td>
+    
+                        </tr>
+                          
+                        <% } %>
+                        <% } %>
+                   
+                  
+
+                         
+                            
+                     </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+<%- include('partials/footer'); -%>

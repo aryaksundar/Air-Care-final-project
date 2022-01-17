@@ -1,0 +1,62 @@
+<%- include('partials/header'); -%>
+  <!-- Your-opinion-area Start  -->
+    <div class="your-opinion-area overly-bg-black opinion-bg section-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ml-auto mr-auto">
+                    <div class="your-opinion-wrap">
+                        <h2>Maintenance Details</h2>
+                        <div class="opinion-content-inner">
+                            <% if (data && data.error){ %>
+                                <div id="register-alert" class="alert alert-danger col-sm-12">
+                                    <%= data.error %>
+                                    <%= data.mid %>
+                                    <%= data.mdate %>
+                                    <%= data.mtime %>
+                                    <%= data.mstatus %>
+    
+                                </div>
+                                <%}%>
+                        
+            
+                            <form method="POST" action="/web/del_details">
+                                <div class="row">
+                                    <div class=" col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="number"  name="mid"  placeholder="Maintenance_Id" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="date"  name="mdate" placeholder="Maintenance_Date" class="form-control">
+                                        </div>
+                                    </div>
+                                   
+                                
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="time"  name="mtime" placeholder="Maintenance_Time" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="input-box">
+                                            <input type="text"  name="mstatus" placeholder="Maintenance_Status" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    
+                                   
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Your-opinion-area End  -->
+    
+<%- include('partials/footer'); -%>

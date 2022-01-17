@@ -1,0 +1,205 @@
+<%- include('partials/header'); -%>
+
+
+<!-- page -->
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Home</a>
+                    <i>|</i>
+                </li>
+                <li>Checkout</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //page -->
+<!-- checkout page -->
+<div class="privacy py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+            <span>C</span>heckout
+        </h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+            <h4 class="mb-sm-4 mb-3">Your shopping cart contains:
+                <span>1 Products</span>
+            </h4>
+            <div class="table-responsive">
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>SL No.</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Product Name</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+             
+             <% var totprice=0;
+              if (data && data.prdt) { %>
+             <% for(var i = 0; i < data.prdt.length; i++){ %>
+             <% totprice+=data.prdt[i].brperunit*data.prdt[i].qty %>
+                        
+             <tr class="rem1">
+                            <td class="invert">1</td>
+                            <td class="invert-image">
+                                <a href="single.html">
+                                    <img src= "/product/<%= data.prdt[i].photo_name %>" width="300" height="200" alt=" " class="img-responsive">
+                                </a>
+                            </td>
+                            <td class="invert">
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                       
+                                        <div class="entry value">
+                                            <span><%= data.prdt[i].qty %></span>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </td>
+                            <td ><%= data.prdt[i].brname %></td>
+                            <td class="invert">
+                                <div class="rem">
+                                    <div class="close1"> </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <%}%>
+                        <%}%>
+                        
+                 
+                     </tbody>
+                </table>
+            </div>
+            <div class="cart_extra_total_title">Subtotal</div>
+			<div class="cart_extra_total_value ml-auto">RS <%= totprice %></div>
+        </div>
+       <div class="checkout-left">
+            <div class="address_form_agile mt-sm-5 mt-4">
+                <h4 class="mb-sm-4 mb-3">Add a new Details</h4>
+    
+                <% if (data1 && data1.cust){%>
+                <form  action="/checkout"  method="POST" class="creditly-card-form agileinfo_form">
+                  
+ 
+                    <div class="creditly-wrapper wthree, w3_agileits_wrapper">
+                        <div class="information-wrapper">
+                            <div class="first-row">
+                                  <div class="w3_agileits_card_number_grids">
+                                   
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="customer Id" name="custid" value="<%= locals.customer.id %>">
+                                        </div>
+                                    </div>
+
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Full Name" name="fullname" value="<%= locals.customer.first_name %> <%= locals.customer.last_name %>">
+                                        </div>
+                                    </div>
+                                
+                                   <div class="w3_agileits_card_number_grid_left form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Phone Number (Required)*" name="phoneno" value="<%= data1.cust[0].phone %>">
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Pincode (Required)*" name="pin" value="<%= data1.cust[0].pin %>">
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="State (Required)*" name="state" value="<%= data1.cust[0].state%>"  >
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="City (Required)*" name="city" value="<%= data1.cust[0].city %>" >
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="House No.(Required)*" name="hno" value="<%= data1.cust[0].hno %>" >
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Building Name (Required)*" name="bname" value="<%= data1.cust[0].bname %>" >
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Road Name (Required)*" name="rname"value="<%= data1.cust[0].rname %>">
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Area Name (Required)*" name="areaname" value="<%= data1.cust[0].areaname %>" >
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" placeholder="Place Name (Required)*" name="pname" value="<%= data1.cust[0].pname %>">
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="hidden" class="form-control" placeholder="Order Date (Required)*" name="odate"  value="<%= data1.cust[0].orderdate %>">
+                                        </div>
+                                    </div>
+                                    <div class="w3_agileits_card_number_grid_right form-group">
+                                        <div class="controls">
+                                            <input type="hidden" class="form-control" placeholder="Email(Required)*" name="email" value="<%=locals.customer.email %>">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="controls form-group">
+                                    <select class="option-w3ls">
+                                        <option>Select Address type</option>
+                                        <option>Office</option>
+                                        <option>Home</option>
+                                        <option>Commercial</option>
+
+                                    </select>
+                                </div>
+
+                             
+                                <div class="cart_extra_total_value ml-auto">
+                                    <input type="text" name="totalprice" class="form-control" placeholder="Totalprice"  value="<%= totprice %>" /> </div>
+                               
+                            </div>
+
+                        </div>
+                    </div>
+                
+                <div class="checkout-right-basket">
+                    
+                        <button class="btn btn-theme" type="submit">Payment</button>
+                        </div>
+            </div>
+        </div>
+    </div>
+   
+    </form>
+    <% } %>
+    
+    </div>
+</div>
+<!-- //checkout page -->
+<%- include('partials/footer'); -%>
+
+
+
+
+

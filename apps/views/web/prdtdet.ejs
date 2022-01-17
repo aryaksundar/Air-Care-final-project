@@ -1,0 +1,162 @@
+<%- include('partials/header'); -%>
+ 
+  <!-- page -->
+  <div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+      <div class="container">
+        <ul class="w3_short">
+          <li>
+            <a href="/">Home</a>
+            <i>|</i>
+          </li>
+          <li>Product Details</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- //page -->
+  <div class="banner-bootom-w3-agileits py-5">
+  <div class="container py-xl-4 py-lg-2">
+  <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+    <span>S</span>ingle
+    <span>P</span>roduct
+  <span>D</span>etails</h3>
+
+ <div class="row">
+        <div class="col-lg-5 col-md-8 single-right-left ">
+          <div class="grid images_3_of_2">
+            <div class="flexslider">
+              <ul class="slides">
+               
+                
+               <% for(var i = 0; i < data.product.length; i++){%>
+        
+                
+                <li data-thumb="../product/<%= data.product[i].photo_name %>">
+                  <div class="thumb-image">
+                    <img src="../product/<%=  data.product[i].photo_name %>" width="400" height="400" data-imagezoom="true" class="img-fluid" alt=""> </div>
+                </li>
+               <% } %>
+               
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-infoagile">
+          <ul>
+            <form method="post" action="/prdtdet">
+    
+            
+              <div class="col-sm-10">                  
+                <input type="hidden"  id="prdt_id" placeholder="Product Id" name="prdt_id" value="<%= data.product[0].brid %>">
+              </div>
+
+            <li class="mb-3">
+              <%= data.product[0].brandname %>
+            </li>
+            <li class="mb-3">
+              <%= data.product[0].brname %>
+            </li>
+            <li class="mb-3">
+              <%= data.product[0].color %>
+            </li>
+            <li class="mb-3">
+              <%= data.product[0].dim %>
+            </li>
+            <li class="mb-3">
+              <%= data.product[0].weight %>
+            </li>
+            <li class="mb-3">
+              <%= data.product[0].warsum %>
+            </li>
+          </ul>
+        
+            
+          <div class="col-sm-10">
+              <input type="hidden" id="qty" placeholder="Quantity" name="qty" value="1">
+           </div>
+
+          <p class="mb-3">
+            <span class="item_price">Rs. <%= data.product[0].brperunit %></span>
+           <!-- <del class="mx-2 font-weight-light">Rs. <%= data.product[0].price %></del> -->
+            <input type="hidden"  value="<%= data.product[0].brid %>">
+            <label>Free delivery</label>
+          </p>
+          <div class="single-infoagile">
+            <ul>
+              <li class="mb-3">
+                Cash on Delivery Eligible.
+              </li>
+              <li class="mb-3">
+                Shipping Speed to Delivery.
+              </li>
+            </ul>
+          </div>
+          <div class="product-single-w3l">
+            <p class="my-3">
+                <i class="far fa-hand-point-right mr-2"></i>
+            Free standard installation within
+            <label>48 hours</label> of delivery</p>
+          <ul>
+          
+          
+            <li class="mb-1">
+              Inverter Compressor: Energy efficient, less noise & more durable
+            </li>
+            <li class="mb-1">
+              Also included in the box: User manual, Warranty card
+            </li>
+            <li class="mb-1">
+            Net banking & Credit/ Debit/ ATM card
+            </li>
+          </ul>
+  
+       
+        </div>
+           
+          </div>
+          <div class="occasion-cart">
+            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+        
+              <table>
+               
+                
+
+                  <tr>
+                  <td > <div style="margin-left:100px;"> 
+                 
+                  <input name="addtocart"  type="submit" value="add to cart" class="button" >
+                
+                  </div></td>
+                  </tr>
+
+              </table>
+           
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+               </form>
+  <!-- flexslider -->
+  <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.flexslider.js"></script>
+  <script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+      $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails"
+      });
+    });
+  </script>
+  <!-- //FlexSlider-->
+
+<%-include ('partials/footer'); %>

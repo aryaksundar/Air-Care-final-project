@@ -1,0 +1,86 @@
+<%- include('partials/header'); -%>
+<div class="privacy py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+            <span>M</span>y Orders
+        </h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+            <h4 class="mb-sm-4 mb-3">Your shopping cart contains:
+                <span> Products</span>
+            </h4>
+
+            
+            <div class="table-responsive">
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>SL No.</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Estimate_delivery_date</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                     <% 
+                         var totprice=0;
+                           if (data && data.cust){%>
+                            <% for(var i = 0; i < data.cust.length; i++){%>
+                           <!-- Cart Item -->
+
+                          <% totprice+=data.cust[i].brperunit*data.cust[i].qty %>
+
+
+
+                        <tr class="rem1">
+                            <td class="invert"><%= i+1%></td>
+                            <td class="invert-image">
+                                
+                                    <img src="../product/<%= data.cust[i].photo_name %>" width="50" alt=" " class="img-responsive">
+                                
+                            </td>
+                            
+                            <td class="invert">
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                      
+                                        <div class="entry value">
+                                            <input type="text" id="qty" value="<%= data.cust[i].qty %>" style="width:25px;" >
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </td>
+
+                            
+                            <td class="invert"><%= data.cust[i].brname%></td>
+                            <td class="invert">  <%= data.cust[i].brperunit %></td>
+                            <td class="invert">  <%= data.cust[i].estimate_delivery_date %></td>
+                         
+                            
+                            
+                        </tr>
+                        
+                                      <%}%>
+                        <%}%>
+
+                        <tr>
+                            <td colspan="7"> <div class="cart_extra_total_title">Subtotal</div>
+                                <div class="cart_extra_total_value ml-auto">RS <%= totprice %></div>
+                               </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+   
+</div>
+<%- include('partials/footer'); -%>
